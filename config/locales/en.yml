@@ -42,3 +42,8 @@ en:
   successupdate: "Update success"
   sure: "You sure?"
   delete: "delete"
+  birthday: "Birthday: "
+  gender: "Gender: "
+  email: "Email: "
+  skill: "Skill: "
+  division: "Description: "

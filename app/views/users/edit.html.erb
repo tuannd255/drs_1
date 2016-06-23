@@ -20,13 +20,13 @@
       <%= f.date_field :birthday, class: "form-control" %>
 
       <%= f.fields_for :profile, @user.profile do |profile| %>
-        <%= f.label :Skill %>
-        <%= profile.select :skill_id, Skill.all.collect{|skill| [skill.language,
-          skill.id]} %>
+        <%= f.label :skill %>
+        <%= profile.select :skill_id, Skill.all.collect{|skill|
+          [skill.language, skill.id]} %>
 
-        <%= f.label :Position %>
-        <%= profile.select :position_id, Position.all.collect{|position|
-          [position.position, position.id]} %>
+        <%= f.label :division %>
+        <%= profile.select :division_id, Division.all.collect{|division|
+          [division.descrition, division.id]} %>
       <% end %>
 
       <%= f.label :password %>

@@ -22,3 +22,12 @@ en:
   users: 
     account: "Account"
     title: "Users"
+  signup:
+    title: "SignUp"
+    head: "SignUp"
+    confirm: "Confirmation"
+    create: "Create my account"
+  welcome: "Welcome %{user_name}"
+  error: 
+    number: "errors"
+    contain: "The form contains"

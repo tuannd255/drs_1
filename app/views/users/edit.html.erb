@@ -1,5 +1,5 @@
-<% provide :title, t("signup.title") %>
-<h1><%= t "signup.head" %></h1>
+<% provide :title, t("edit.title") %>
+<h1><%= t "edit.content" %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -13,10 +13,21 @@
       <%= f.email_field :email, class: "form-control" %>
 
       <%= f.label :gender %>
-      <%= f.select :gender, options_for_select(@sex.collect{|a, v|[a, a]}, @user.gender) %>	      
+      <%= f.select :gender, options_for_select(@sex.collect{|a, v|[a, a]},
+        @user.gender) %>       
 
       <%= f.label :birthday %>
       <%= f.date_field :birthday, class: "form-control" %>
+
+      <%= f.fields_for :profile, @user.profile do |profile| %>
+        <%= f.label :Skill %>
+        <%= profile.select :skill_id, Skill.all.collect{|skill| [skill.language,
+          skill.id]} %>
+
+        <%= f.label :descrition %>
+        <%= profile.select :division_id, Division.all.collect{||
+          [divison.descrition, descrition.id]} %>
+      <% end %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
@@ -24,7 +35,7 @@
       <%= f.label :password_confirmation, t("signup.confirm") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
-      <%= f.submit t("signup.create"), class: "btn btn-primary" %>
+      <%= f.submit t("edit.save"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

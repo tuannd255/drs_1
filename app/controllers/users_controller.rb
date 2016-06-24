@@ -1,20 +1,25 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: [:new, :create]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :find_user, only: [:show, :edit, :update]
+  before_action :set_gender, only: [:new, :create, :edit]
+
+  def index
+    @users = User.paginate page: params[:page]
+  end
 
   def show
-    if logged_in?
-      @user = User.find params[:id]
-    else
-      redirect_to root_path
-    end
   end
 
   def new
-    @user = User.new
-    @sex = User.genders
+    if logged_in?
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
   def create
-    @sex = User.genders
     @user = User.new user_params
     if @user.save
       log_in @user
@@ -25,9 +30,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "successupdate"
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+
   private
+  def find_user
+    @user = User.find_by id: params[:id]
+    redirect_to root_path if @user.nil?
+  end
+
   def user_params
     params.require(:user).permit :name, :email, :gender, :birthday,
-      :password, :password_confirmation
+      :password, :password_confirmation, profile_attributes: [:division_id,
+      :skill_id, :position_id, :id]
+  end
+
+  def set_gender
+    @sex = User.genders
   end
 end

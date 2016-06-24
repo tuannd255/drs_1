@@ -11,22 +11,30 @@ class User < ActiveRecord::Base
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_one :profile
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   validates :name,  presence: true, length: {maximum: 50}
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
   
   enum gender: ["male", "female", "less", "gay"]
-  
+
+  after_create :create_profile
+  accepts_nested_attributes_for :profile
+
   has_secure_password
+
+  def create_profile
+    Profile.create(user_id: id)
+  end
 
   class << self
     def digest string
-      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
         BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
@@ -44,6 +52,10 @@ class User < ActiveRecord::Base
   def authenticated? remember_token
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+  
+  def current_user? current_user
+    self == current_user
   end
 
   def forget

@@ -163,6 +163,10 @@ input {
   height: auto !important;
 }
 
+#user_gender, #user_birthday, #language {
+  @extend .form-control;
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -190,4 +194,16 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }

@@ -14,6 +14,7 @@ en:
     btn: "Log in"
     fail: "Invalid email/password combination"
     remember: "Remember me on this computer"
+    please: "Please log in"
   logout:
     title: "Logout"
     btn: "Log out"
@@ -22,12 +23,22 @@ en:
   users: 
     account: "Account"
     title: "Users"
+    all: "All users"
+    delete: "Users deleted"
   signup:
-    title: "SignUp"
-    head: "SignUp"
+    title: "Sign Up"
+    head: "Sign Up"
     confirm: "Confirmation"
     create: "Create my account"
+    btn: "Sign Up Now"
   welcome: "Welcome %{user_name}"
   error: 
     number: "errors"
     contain: "The form contains"
+  edit: 
+    title: "Users edit"
+    content: "Update your profile"
+    save: "Save changes"
+  successupdate: "Update success"
+  sure: "You sure?"
+  delete: "delete"

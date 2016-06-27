@@ -13,3 +13,9 @@ User.create!(name: "Nguyen Duy Tuan",
     password: password,
     password_confirmation: password)
 end
+
+Skill.create!(id: 1, language: "C")
+Skill.create!(id: 2, language: "Ruby")
+Skill.create!(id: 3, language: "Java")
+Division.create!(id: 1, descrition: "task1111:")
+Position.create!(id: 1, position: "member")

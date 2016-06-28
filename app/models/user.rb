@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   before_save {self.email = email.downcase}
 
-  has_many :user_requests, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
@@ -60,5 +60,9 @@ class User < ActiveRecord::Base
 
   def forget
     update_attributes remember_digest: :nil
+  end
+
+  def feed
+    Request.oder_by_time.where("user_id = ?", id)
   end
 end

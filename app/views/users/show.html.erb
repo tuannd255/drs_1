@@ -5,6 +5,7 @@
       <p>
         <%= @user.name %>
       </p>
+      </h1>
       <p>
         <%= t "gender" %> 
         <%= @user.gender %>
@@ -24,11 +25,15 @@
         <%= t "skill" %> 
         <%= @user.profile.skill.language %>
       </p>
-     
-      <p>
-        <%= t "division" %> 
-        <%= @user.profile.division.descrition %>
-      </p>
     </div>
   </div>
+    </section>
+  </aside>
+</div>
+  <section class="stats">
+    <%= render "shared/stats" %>
+  </section>
+</div>
+<div class="col-md-8">
+    <%= render "follow_form" if logged_in? %>
 </div>

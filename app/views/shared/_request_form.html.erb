@@ -1,0 +1,24 @@
+<%= form_for @request do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.label t "request.leave_from" %>
+    <%= f.datetime_local_field :time_out, class: "form-control" %>
+
+    <%= f.label t "request.to" %>
+    <%= f.datetime_local_field :time_in, class: "form-control" %>
+
+    <%= f.label t "request.kol" %>
+    <%= f.select :kind_of_leave,
+      options_for_select(@kind_of_leaves.collect{|a, v|[a, a]})%>
+
+    <%= f.label t "request.rol" %>
+    <%= f.text_field :reason, placeholder: t("request.reason_hidden"),
+      class: "form-control" %>
+
+    <%= f.label t "request.compensation" %>
+    <%= f.text_field :compensation_time,
+      placeholder: t("request.compensation_hidden"),
+      class: "form-control" %>
+    <%= f.submit t("request.post"), class: "btn btn-primary" %>
+  </div>
+<% end %>

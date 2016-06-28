@@ -1,0 +1,55 @@
+<li id="request-<%= request.id %>">
+  <p>
+    <span class="user">
+      <%= link_to request.user.name, request.user %>
+    </span>
+  </p>
+  <div>
+    <span class="content">
+      <%= t("request.kol") + t(:colon) + t(:space) %>
+      <%= request.kind_of_leave %>
+    </span>
+  </div>
+  <% if request.time_out.present? %>
+    <div>
+      <span class="content">
+        <%= t("request.leave_from") + t(:colon) + t(:space) %>
+        <%= request.time_out %>
+      </span>
+    </div>
+  <% end %>
+  <% if request.time_in.present? %>
+    <div>
+      <span class="content">
+        <%= t("request.to") + t(:colon) + t(:space) %>
+        <%= request.time_in %>
+      </span>
+    </div>
+  <% end %>
+  <% if request.time_out.present? && request.time_in.present? %>
+    <span class="content">
+      <%= t("request.time") + t(:colon) + t(:space) %>
+      <%= request.time %>
+      <%= t("request.minutes")%>
+    </span>
+  <% end %>
+  <div>
+    <span class="content">
+      <%= t("request.reason") + t(:colon) + t(:space) %>
+      <%= request.reason %>
+    </span>
+  </div>
+  <div>
+    <span class="content">
+      <%= t("request.compensation") + t(:colon) + t(:space) %>
+      <%= request.compensation_time %>
+    </span>
+  </div>
+  <div>
+    <span class="timestamp">
+      <%= t("request.send") + t(:space) %>
+      <%= time_ago_in_words(request.created_at) %>
+      <%= t(:space) + t("request.ago") %>
+    </span>
+  </div>
+</li>

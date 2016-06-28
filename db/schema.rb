@@ -63,29 +63,24 @@ ActiveRecord::Schema.define(version: 20160621091719) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "kind_of_leave"
-    t.time     "time_out"
-    t.time     "time_in"
+    t.datetime "time_out"
+    t.datetime "time_in"
     t.time     "time"
-    t.time     "compensation_time"
+    t.string   "compensation_time"
+    t.string   "reason"
+    t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "requests", ["user_id", "created_at"], name: "index_requests_on_user_id_and_created_at"
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
 
   create_table "skills", force: :cascade do |t|
     t.string   "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "user_requests", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "user_requests", ["request_id"], name: "index_user_requests_on_request_id"
-  add_index "user_requests", ["user_id"], name: "index_user_requests_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

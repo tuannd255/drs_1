@@ -20,11 +20,20 @@
         <%= t "email" %> 
         <%= @user.email %>
       </p>
-     
-      <p>
-        <%= t "skill" %> 
-        <%= @user.profile.skill.language %>
-      </p>
+
+      <% if @user.profile.skill.present? %>
+        <p>
+          <%= t "skill" %> 
+          <%= @user.profile.skill.language %>
+        </p>
+      <% end %>
+      
+      <% if @user.profile.division.present? %>
+        <p>
+          <%= t "division" %> 
+          <%= @user.profile.division.descrition %>
+        </p>
+      <% end %>
     </div>
   </div>
     </section>

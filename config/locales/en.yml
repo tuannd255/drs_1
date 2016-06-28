@@ -26,6 +26,7 @@ en:
     all: "All users"
     delete: "Users deleted"
     view: "View my profile"
+    nil: "User not found"
   signup:
     title: "Sign Up"
     head: "Sign Up"

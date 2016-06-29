@@ -19,3 +19,10 @@ Skill.create!(id: 2, language: "Ruby")
 Skill.create!(id: 3, language: "Java")
 Division.create!(id: 1, descrition: "task1111:")
 Position.create!(id: 1, position: "member")
+
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}

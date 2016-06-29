@@ -1,0 +1,11 @@
+<li>
+  <span><%= link_to user.name, user %></span>
+  <% unless user.admin %>
+    <%= t "slash" %>
+    <%= link_to t("destroy.button"), admin_user_path(user),
+      method: :delete, 
+      data: {confirm: t("destroy.confirm")} %>
+    <%= t "slash" %>
+    <%= link_to t("edit.button"), edit_admin_user_path(user) %>
+  <% end %>
+</li>

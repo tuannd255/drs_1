@@ -5,7 +5,7 @@
       <p>
         <%= @user.name %>
       </p>
-      </h1>
+      
       <p>
         <%= t "gender" %> 
         <%= @user.gender %>
@@ -35,14 +35,20 @@
         </p>
       <% end %>
     </div>
-  </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
     </section>
-  </aside>
-</div>
-  <section class="stats">
-    <%= render "shared/stats" %>
-  </section>
-</div>
-<div class="col-md-8">
-    <%= render "follow_form" if logged_in? %>
+  </div>
+  <div class="col-md-8">
+    <% if logged_in? %>
+      <%= render "follow_form" %>
+      <% if @user.requests.any? %>
+        <h3><%= t "request.title", count: @user.requests.count %></h3>
+        <ol class="requests">
+          <%= render @requests %>
+        </ol>
+        <%= will_paginate @requests %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

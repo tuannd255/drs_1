@@ -73,3 +73,6 @@ en:
     feed: "Request Feed"
   space: " "
   colon: ":"
+  follow:
+    follow: "Follow"
+    unfollow: "Unfollow"

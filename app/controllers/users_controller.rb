@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @requests = @user.requests.oder_by_time.paginate page: params[:page]
+    @requests = @user.requests.order_by_time.paginate page: params[:page]
   end
 
   def new

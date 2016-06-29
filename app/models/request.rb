@@ -1,7 +1,9 @@
 class Request < ActiveRecord::Base
   belongs_to :user
 
-  scope :oder_by_time, -> {order created_at: :desc}
+  scope :order_by_time, -> {order created_at: :desc}
+  scope :self_or_following, -> (user_id, following_ids) {where(
+    "user_id = ? OR user_id IN (?)", user_id, following_ids)}
   
   validates :user_id, presence: true
   validates :reason, presence: true, length: {maximum: 140}
@@ -13,25 +15,25 @@ class Request < ActiveRecord::Base
   private
   def check_kind_of_leave
     if il?
-      if time_in.nil?
+      if self.time_in.nil?
         errors.add :The, I18n.t("error.innil")
       else
-        time_out = :nil
+        self.time_out = :nil
       end
     elsif le?
-      if time_out.nil?
+      if self.time_out.nil?
         errors.add :The, I18n.t("error.outnil")
       else
-        time_in = :nil
+        self.time_in = :nil
       end
     elsif
-      if time_out.present? && time_in.present?
-        if time_out > time_in
+      if self.time_out.present? && self.time_in.present?
+        if self.time_out > self.time_in
           errors.add :The, I18n.t("error.outin")
         else
-          time = (time_in - time_out) / 60
+          self.time = (self.time_in - self.time_out) / 60
         end
-      elsif time_in.nil? && time_out.nil?
+      elsif self.time_in.nil? && self.time_out.nil?
         errors.add :The, I18n.t("error.outin_nil")
       end
     end

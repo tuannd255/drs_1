@@ -1,0 +1,29 @@
+<% if params[:search].present? %>
+  <% if @users.present? %>
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+  <% else %>
+    <p>
+      <span> 
+        <%= t "search.name" %>
+      </span>
+      <i>
+        <%= params[:search] %>
+      </i>
+      <span>
+        <%= t "search.email" %>
+      </span>
+      <i>
+        <%= params[:search] %>
+      </i>
+    </p>
+  <% end %>
+<% else %>
+  <h1><%= t "users.all" %></h1>
+  <%= will_paginate @users %>
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+  <%= will_paginate @users %>
+<% end %>

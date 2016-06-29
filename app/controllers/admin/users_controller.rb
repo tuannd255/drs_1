@@ -4,7 +4,11 @@ class Admin::UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = if params[:search]
+      User.search_by_name_or_email params[:search]
+    else
+      User.paginate page: params[:page]
+    end
   end
 
   def destroy

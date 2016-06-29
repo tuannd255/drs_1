@@ -1,7 +1,3 @@
 <li>
   <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    <%= t("daugach")%> <%= link_to t("delete"), user, method: :delete,
-      data: {confirm: t("follow.sure")} %>
-  <% end %>
 </li>

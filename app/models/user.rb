@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Request.oder_by_time.where("user_id = ?", id)
+    Request.order_by_time.self_or_following id, following_ids
   end
 
   def follow other_user

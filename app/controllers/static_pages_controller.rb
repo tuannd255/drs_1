@@ -3,9 +3,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @request = current_user.requests.build
       @kind_of_leaves = Request.kind_of_leaves
-      @feed_items = current_user.feed.oder_by_time.paginate page: params[:page]
-    else
-      @feed_items  = Request.all.oder_by_time.paginate page: params[:page]
+      @feed_items = current_user.feed.order_by_time.paginate page: params[:page]
     end
   end
 

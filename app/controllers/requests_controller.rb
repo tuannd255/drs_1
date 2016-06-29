@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
       flash[:success] = t "request.created"
       redirect_to root_url
     else
-      @feed_items = current_user.feed.oder_by_time.paginate page: params[:page]
+      @feed_items = current_user.feed.order_by_time.paginate page: params[:page]
       render "static_pages/home"
     end
   end

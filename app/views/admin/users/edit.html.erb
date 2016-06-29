@@ -1,0 +1,19 @@
+<% provide :title, t("edit.title") %>
+<h1><%= t "edit.content" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @user] do |f| %>
+      <p>
+        <%= f.label :name %>
+        <%= @user.name %>
+      </p>
+
+      <%= f.fields_for :profile, @user.profile do |profile| %>
+        <%= f.label :position %>
+        <%= profile.select :position_id, @positions %>
+      <% end %>
+      <%= f.submit t("edit.save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

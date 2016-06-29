@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     @user = User.find_by id: params[:id]
     redirect_to root_url unless @user.current_user? current_user
   end
+  
+  def verify_admin
+    redirect_to root_path unless current_user.admin?
+  end
 end

@@ -163,7 +163,8 @@ input {
   height: auto;
 }
 
-#user_gender, #user_birthday, #language, #request_kind_of_leave {
+#user_gender, #user_birthday, #language, #request_kind_of_leave,
+  #user_profile_attributes_position_id {
   @extend .form-control;
 }
 

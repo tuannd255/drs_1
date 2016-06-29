@@ -1,0 +1,22 @@
+<%= form_for @report do |f| %>
+  <%= render "shared/error_messages", object: @report %>
+  <div class="field">
+
+    <%= f.label t "report.rpd" %>
+    <%= f.date_field :report_date, class: "form-control" %>
+
+    <%= f.label t "report.progress" %>
+    <%= f.text_field :progress, class: "form-control" %>
+
+    <%= f.label t "report.achievement" %>
+    <%= f.text_field :achievement, class: "form-control" %>
+
+    <%= f.label t "report.ndp" %>
+    <%= f.text_field :next_day_plan, class: "form-control" %>
+
+    <%= f.label t "report.comment_question" %>
+    <%= f.text_field :comment_question, class: "form-control" %>
+
+    <%= f.submit t("report.post"), class: "btn btn-primary" %>
+  </div>
+<% end %>

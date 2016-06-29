@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_save {self.email = email.downcase}
 
   has_many :requests, dependent: :destroy
+  has_many :reports, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
@@ -64,6 +65,10 @@ class User < ActiveRecord::Base
 
   def feed
     Request.order_by_time.self_or_following id, following_ids
+  end
+
+  def feed_report
+    Report.oder_by_time.where "user_id = ?", id
   end
 
   def follow other_user

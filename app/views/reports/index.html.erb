@@ -1,0 +1,10 @@
+<% provide :title, t("report.title") %>
+<h1><%= t "report.title" %></h1>
+<div class="col-md-4">
+  <%= render "shared/report_form" %>
+</div>
+<div class="col-md-8">
+  <ul class="reports">
+    <%= render @reports %>     
+  </ul>
+</div>

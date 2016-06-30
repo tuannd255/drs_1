@@ -248,3 +248,18 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+.position {
+  .title {
+    color: blue;
+  }
+  .content {
+    color: #428bca;
+  }
+}
+.admin-header {
+  float: right;
+  font-size: 24px;
+  margin: 20px;
+  text-decoration: none;
+}

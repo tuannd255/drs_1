@@ -51,7 +51,7 @@ en:
     save: "Save changes"
     button: "Edit"
   successupdate: "Update success"
-  Updatefail: "Update fail"
+  updatefail: "Update fail"
   sure: "You sure?"
   delete: "delete"
   birthday: "Birthday: "
@@ -105,3 +105,18 @@ en:
   follow_user:
     followers: "followers"
     following: "following"
+  position:
+    manage: "Position manage"
+    title: "Position"
+    list: "List position"
+    edit: "Edit Position"
+    nil: "Position nil"
+    deleted: "Position deleted"
+    deletefail: "Position delete fail"
+    updated: "Position updated"
+    create:
+      button: "Create"
+      title: "Create Position"
+      created: "Position created"
+      hidden: "Compose position..."
+      fail: "Create fail"

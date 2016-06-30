@@ -28,6 +28,7 @@ en:
     nil: "User not found"
     deleted: "User deleted"
     deletefail: "Delete fail"
+    report: "Create report"
   signup:
     title: "Sign Up"
     head: "Sign Up"
@@ -35,13 +36,14 @@ en:
     create: "Create my account"
     btn: "Sign Up Now"
   welcome: "Welcome %{user_name}"
-  error: 
+  error:
     number: "errors"
     contain: "The form contains "
     outin: "time check out can't not be late than the time check in!"
     outin_nil: "time check in and check out can't not simultaneously blank!"
     innil: "time check in can't not blank if you choose IL!"
     outnil: "time check out can't not blank if you choose LE!"
+    reportdate: "Cannot be select in the future"
   edit: 
     title: "Users edit"
     content: "Update your profile"
@@ -74,6 +76,18 @@ en:
     time: "Time"
     minutes: "minutes"
     feed: "Request Feed"
+  report:
+    name: "report"
+    title: "Report"
+    ago: "ago"
+    created: "Report create success!"
+    post: "Send"
+    feed: "Report"
+    rpd: "Report date"
+    progress: "Progress"
+    achievement: "Achievement"
+    ndp: "The next day plan"
+    comment_question: "Your comment or question"
   space: " "
   colon: ":"
   follow:

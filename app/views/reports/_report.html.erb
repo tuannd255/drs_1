@@ -1,0 +1,44 @@
+<li id="report-<%= report.id %>">
+  <p>
+    <span class="user">
+      <%= link_to report.user.name, report.user %>
+    </span>
+  </p>
+  <div>
+    <span class="content">
+      <%= t("report.progress") + t(:colon) + t(:space) %>
+      <%= report.progress %>
+    </span>
+  </div>
+  <div>
+    <span class="content">
+      <%= t("report.rpd") + t(:colon) + t(:space) %>
+      <%= report.report_date %>
+    </span>
+  </div>
+  <div>
+    <span class="content">
+      <%= t("report.achievement") + t(:colon) + t(:space) %>
+      <%= report.achievement %>
+    </span>
+  </div>
+  <div>
+    <span class="content">
+      <%= t("report.ndp") + t(:colon) + t(:space) %>
+      <%= report.next_day_plan %>
+    </span>
+  </div>  
+  <div>
+    <span class="content">
+      <%= t("report.comment_question") + t(:colon) + t(:space) %>
+      <%= report.comment_question %>
+    </span>
+  </div>
+  <div>
+    <span class="timestamp">
+      <%= t("report.send") + t(:space) %>
+      <%= time_ago_in_words(report.created_at) %>
+      <%= t(:space) + t("report.ago") %>
+    </span>
+  </div>
+</li>

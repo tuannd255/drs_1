@@ -1,7 +1,8 @@
 <% provide :title, t("users.all") %>
-<h1><%= t "user.all" %></h1>
-<%= will_paginate %>
-<ul class="users">
-  <%= render @users %>
-</ul>
-<%= will_paginate %>
+
+<%= form_tag admin_users_path, method: :get do %>
+  <%= text_field_tag :search, params[:search],
+    placeholder: t("users.search") %>
+  <%= submit_tag t("search.search") %>
+<% end %>
+<%= render "shared/result" %>

@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  scope :search_by_name_or_email, -> (search) {where(
+    "name LIKE :query OR email LIKE :query", query: "%#{search}%")}
+
   def create_profile
     Profile.create(user_id: id)
   end

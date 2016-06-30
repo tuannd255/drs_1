@@ -29,6 +29,7 @@ en:
     deleted: "User deleted"
     deletefail: "Delete fail"
     report: "Create report"
+    search: "Search user by name or email...."
   signup:
     title: "Sign Up"
     head: "Sign Up"
@@ -97,3 +98,10 @@ en:
     button: "Delete"
     confirm: "Are you sure?"
   slash: "|"
+  search:
+    name: "There is no one named "
+    email: "nor have email"
+    search: "Search"
+  follow_user:
+    followers: "followers"
+    following: "following"

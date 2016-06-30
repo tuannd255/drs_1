@@ -1,0 +1,16 @@
+<% provide :title, t("division.title") %>
+<h1><%= t "division.title" %></h1>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="division col-md-4 center">
+    <h3 class="title">
+      <b><%= t "division.list" %></b>
+    </h3>
+    <%= render @divisions %>
+    <h2>
+      <%= link_to t("division.create.title"), new_admin_division_path %>
+    </h2>
+  </div>
+  
+  <div class="col-md-4"></div>
+</div>

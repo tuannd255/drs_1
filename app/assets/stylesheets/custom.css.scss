@@ -24,7 +24,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 section {
@@ -241,15 +241,13 @@ input {
     margin-top: 5px;
   }
 }
-
 aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
   }
 }
-
-.position {
+.position, .division {
   .title {
     color: blue;
   }
@@ -262,4 +260,16 @@ aside {
   font-size: 24px;
   margin: 20px;
   text-decoration: none;
+}
+.admin-header a:hover {
+  text-decoration: none!important;
+}
+.home {
+  background-image: url("wallpaper.jpg");
+  height: 594px;
+  background-size: 100%;
+  color: #fff;
+  .content {
+    margin-top: 300px;
+  }
 }

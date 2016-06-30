@@ -120,3 +120,17 @@ en:
       created: "Position created"
       hidden: "Compose position..."
       fail: "Create fail"
+  division:
+    manage: "Division manage"
+    title: "Division"
+    list: "List division"
+    edit: "Edit Division"
+    nil: "Division nil"
+    deleted: "Division deleted"
+    deletefail: "Division delete fail"
+    updated: "Division updated"
+    create:
+      title: "Create Division"
+      created: "Division created"
+      hidden: "Compose descrition..."
+      fail: "Create fail"

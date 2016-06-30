@@ -14,13 +14,6 @@ User.create!(name: "Nguyen Duy Tuan",
     password_confirmation: password)
 end
 
-Skill.create!(id: 1, language: "C")
-Skill.create!(id: 2, language: "Ruby")
-Skill.create!(id: 3, language: "Java")
-Division.create!(id: 1, descrition: "task 1")
-Position.create!(id: 1, position: "member")
-Position.create!(id: 2, position: "manager")
-
 users = User.all
 user = users.first
 following = users[2..50]

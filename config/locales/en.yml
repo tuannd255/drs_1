@@ -58,7 +58,6 @@ en:
   gender: "Gender: "
   email: "Email: "
   skill: "Skill: "
-  division: "Description: "
   request:
     name: "request"
     title: "Request (%{count})"
@@ -129,6 +128,10 @@ en:
     deleted: "Division deleted"
     deletefail: "Division delete fail"
     updated: "Division updated"
+    descrition: "%{descrition}"
+    add_manager: "Add manager"
+    add: "Add"
+    division: "Description"
     create:
       title: "Create Division"
       created: "Division created"

@@ -1,0 +1,15 @@
+<% provide :title, t("division.descrition", descrition: @division.descrition) %>
+<h1><%= t "division.descrition", descrition: @division.descrition.capitalize %></h1>
+<div class="col-md-4 col-md-offset-4 center">
+  <% @user.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+      <%= form_for [:admin, user] do |f| %>
+        <%= f.fields_for :profile do |profile| %>
+          <%= profile.hidden_field :division_id, value: @division.id %>
+        <% end %>
+        <%= f.submit t("division.add"), class: "btn btn-primary" %>
+      <% end %>
+    </li>
+  <% end %>
+</div>

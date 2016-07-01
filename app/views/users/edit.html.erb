@@ -23,10 +23,6 @@
         <%= f.label :skill %>
         <%= profile.select :skill_id, Skill.all.collect{|skill|
           [skill.language, skill.id]} %>
-
-        <%= f.label :division %>
-        <%= profile.select :division_id, Division.all.collect{|division|
-          [division.descrition, division.id]} %>
       <% end %>
 
       <%= f.label :password %>

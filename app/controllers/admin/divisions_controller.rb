@@ -17,6 +17,10 @@ class Admin::DivisionsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.manager
+  end
+
   def update
     if @division.update_attributes division_params
       flash[:success] = t "division.updated"

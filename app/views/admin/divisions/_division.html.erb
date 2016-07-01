@@ -6,5 +6,7 @@
       method: :delete, data: {confirm: t("destroy.confirm")} %>
     <%= t "slash" %>
     <%= link_to t("edit.button"), edit_admin_division_path(division) %>
+    <%= t "slash" %>
+    <%= link_to t("division.add_manager"), admin_division_path(division) %>
   </h4>
 </li>

@@ -5,17 +5,14 @@
       <p>
         <%= @user.name %>
       </p>
-      
       <p>
         <%= t "gender" %> 
         <%= @user.gender %>
       </p>        
-     
       <p>
         <%= t "birthday" %> 
         <%= @user.birthday %>
       </p>
-     
       <p>
         <%= t "email" %> 
         <%= @user.email %>
@@ -26,10 +23,15 @@
           <%= @user.profile.skill.language %>
         </p>
       <% end %>
-      
+      <% if @user.profile.position.present? %>
+        <p>
+          <%= t("position.title") + t(:colon) %> 
+          <%= @user.profile.position.position %>
+        </p>
+      <% end %>
       <% if @user.profile.division.present? %>
         <p>
-          <%= t "division" %> 
+          <%= t("position.division") + t(:colon) %> 
           <%= @user.profile.division.descrition %>
         </p>
       <% end %>

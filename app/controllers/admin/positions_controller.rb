@@ -34,16 +34,14 @@ class Admin::PositionsController < ApplicationController
   def destroy
     if @position.nil?
       flash[:danger] = t "position.nil"
-      redirect_to admin_positions_path
     else
       if @position.destroy
         flash[:success] = t "position.deleted"
-        redirect_to admin_positions_path
       else
         flash[:danger] = t "position.delete_fail"
-        redirect_to admin_positions_path
       end
     end
+    redirect_to admin_positions_path    
   end
 
   def index

@@ -42,7 +42,8 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit profile_attributes: [:position_id, :id]
+    params.require(:user).permit profile_attributes: [:position_id,
+      :id, :division_id]
   end
 
   def find_user

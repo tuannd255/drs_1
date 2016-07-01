@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
 
   scope :search_by_name_or_email, -> (search) {where(
     "name LIKE :query OR email LIKE :query", query: "%#{search}%")}
+  scope :manager, -> {where "id in (select user_id from profiles where
+    position_id in (select id from positions where position = ?))", "manager"}
 
   def create_profile
     Profile.create(user_id: id)

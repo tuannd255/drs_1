@@ -1,0 +1,13 @@
+<% provide :title, t("division.create.title") %>
+<h1><%= t "division.create.title" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @division] do |f| %>
+      <%= render "shared/error_messages", object: @division %>
+      <%= f.label :descrition %>
+      <%= f.text_field :descrition, placeholder: t("division.create.hidden"),
+        class: "form-control" %>       
+      <%= f.submit t("position.create.button"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

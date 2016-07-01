@@ -17,7 +17,17 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to t("profile"), current_user %></li>
-              <li><%= link_to t("setting"), edit_user_path(current_user) %></li>
+              <li>
+                <%= link_to t("setting"), edit_user_path(current_user) %>
+              </li>
+              <% if current_user.admin? %>
+                <li>
+                  <%= link_to t("position.manage"), admin_positions_path %>
+                </li>
+                <li>
+                  <%= link_to t("division.manage"), admin_divisions_path %>
+                </li>
+              <% end %>
               <li class="divider"></li>
               <li>
                 <%= link_to t("logout.title"), logout_path, method: :delete %>

@@ -30,6 +30,7 @@ en:
     deletefail: "Delete fail"
     report: "Create report"
     search: "Search user by name or email...."
+    not_be_user: "You are not be user"
   signup:
     title: "Sign Up"
     head: "Sign Up"
@@ -130,10 +131,14 @@ en:
     updated: "Division updated"
     descrition: "%{descrition}"
     add_manager: "Add manager"
+    add_member: "Add member"
     add: "Add"
+    add_to_description: "Add to %{description}"
     division: "Description"
     create:
       title: "Create Division"
       created: "Division created"
       hidden: "Compose descrition..."
       fail: "Create fail"
+  manager:
+    fail: "You are not be manager"

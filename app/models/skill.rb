@@ -1,3 +1,3 @@
 class Skill < ActiveRecord::Base
-  has_many :profiles, dependent: :destroy
+  has_many :profiles
 end

@@ -1,17 +1,27 @@
 User.create!(name: "Nguyen Duy Tuan",
   email: "tuannd@gmail.com",
   password: "123456",
+  birthday: "1994-05-25",
   password_confirmation: "123456",
-  admin: true)
+  admin: true,
+  profile: Profile.create!(user_id: :id))
 
-50.times do |n|
+Position.create! position: "manager"
+Position.create! position: "employee"
+Skill.create! language: "c"
+Skill.create! language: "java"
+Skill.create! language: "php"
+Division.create! descrition: "keangnam"
+
+10.times do |n|
   name = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
+  email = "tuannd#{n+1}@gmail.com"
+  password = "123456"
   User.create!(name: name,
     email: email,
     password: password,
-    password_confirmation: password)
+    password_confirmation: password,
+    profile: Profile.create!(user_id: :id, position_id: Position.second.id))
 end
 
 users = User.all

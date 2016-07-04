@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_manager_and_user, only: :update
+  before_action :correct_user, only: :edit
   before_action :find_user, only: [:show, :edit, :update]
   before_action :set_gender, only: [:new, :create, :edit]
 
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      @user.create_profile position: Position.second
       log_in @user
       flash[:success] = t "welcome", user_name: @user.name
       redirect_to @user

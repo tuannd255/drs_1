@@ -33,6 +33,10 @@
         <p>
           <%= t("position.division") + t(:colon) %> 
           <%= @user.profile.division.descrition %>
+          <% if current_user.profile.position == Position.first &&
+            @user.current_user?(current_user) %>
+            <%= link_to t("division.add_member"), users_path %>
+          <% end %>
         </p>
       <% end %>
     </div>

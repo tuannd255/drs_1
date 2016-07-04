@@ -1,12 +1,13 @@
 <li class="content">
   <h4>
     <%= position.position %>
-    <% unless position.position == "manager" %>
+    <% unless position.id == Position.first.id ||
+      position.id == Position.second.id %>
+      <%= t "slash" %>
+      <%= link_to t("edit.button"), edit_admin_position_path(position) %>
       <%= t "slash" %>
       <%= link_to t("destroy.button"), admin_position_path(position),
         method: :delete, data: {confirm: t("destroy.confirm")} %>
-      <%= t "slash" %>
-      <%= link_to t("edit.button"), edit_admin_position_path(position) %>
-    <% end %>    
+    <% end %>
   </h4>
 </li>

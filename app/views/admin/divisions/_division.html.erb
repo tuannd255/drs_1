@@ -1,12 +1,12 @@
 <li class="content">
   <h4>
     <%= division.descrition %>
-    <%= t "slash" %>
+    <%= t :slash %>
     <%= link_to t("destroy.button"), admin_division_path(division),
       method: :delete, data: {confirm: t("destroy.confirm")} %>
-    <%= t "slash" %>
+    <%= t :slash %>
     <%= link_to t("edit.button"), edit_admin_division_path(division) %>
-    <%= t "slash" %>
+    <%= t :slash %>
     <%= link_to t("division.add_manager"), admin_division_path(division) %>
   </h4>
 </li>

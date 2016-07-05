@@ -1,8 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :notify
   include SessionsHelper
 
   private
+  def notify
+    if logged_in?
+      if current_user.profile.position == Position.first or current_user.admin?
+        @notifications_count = Notification.unread.size        
+      end
+    end
+  end
+
   def logged_in_user
     unless logged_in?
       store_location

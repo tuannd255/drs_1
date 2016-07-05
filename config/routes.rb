@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   get "signup" => "users#new"
+  get "notification" => "notification#index"
+
   resources :users
   resources :requests, only: [:create, :index, :edit, :update]
   resources :reports, only: [:index, :create]  
   resources :relationships, only: [:index, :create, :destroy]
+  resources :notifications, only: [:index]
   resources :users, only: [:index] do 
     resources :relationships, only: [:index]
   end

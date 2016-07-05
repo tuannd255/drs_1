@@ -20,15 +20,13 @@ ActiveRecord::Schema.define(version: 20160629053301) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "receiver"
-    t.string   "status"
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "request_id"
+    t.boolean  "seen",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+  add_index "notifications", ["request_id"], name: "index_notifications_on_request_id"
 
   create_table "positions", force: :cascade do |t|
     t.string   "position"

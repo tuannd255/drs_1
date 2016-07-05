@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.build request_params
     if @request.save
+      @request.create_notification
       flash[:success] = t "request.created"
       redirect_to root_url
     else

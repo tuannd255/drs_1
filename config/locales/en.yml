@@ -147,3 +147,6 @@ en:
   manager:
     fail: "You are not be manager"
   avatar: "avatar.png"
+  noti:
+    title: "Notifications(%{count})"
+    title1: "Notifications"

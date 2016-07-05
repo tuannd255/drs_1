@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
   belongs_to :user
-
+  has_one :notification
   scope :order_by_time, -> {order created_at: :desc}
   scope :self_or_following, -> (user_id, following_ids) {where(
     "user_id = ? OR user_id IN (?)", user_id, following_ids)}
@@ -11,6 +11,8 @@ class Request < ActiveRecord::Base
   validate :check_kind_of_leave
 
   enum kind_of_leave: {il: 0, lo: 1, le: 2}
+
+  scope :not_seen, -> {where "id in (select request_id from notifications where seen = 'f' )"}
 
   private
   def check_kind_of_leave

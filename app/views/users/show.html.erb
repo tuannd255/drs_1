@@ -1,8 +1,9 @@
 <% provide :title, @user.name %>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 center">
     <div class="user_info">
       <p>
+        <div class="avatar"></div>
         <%= @user.name %>
       </p>
       <p>
@@ -48,7 +49,7 @@
     <% if logged_in? %>
       <%= render "follow_form" %>
       <% if @user.requests.any? %>
-        <h3><%= t "request.title", count: @user.requests.count %></h3>
+        <h3 class="center"><%= t "request.title", count: @user.requests.count %></h3>
         <ol class="requests">
           <%= render @requests %>
         </ol>

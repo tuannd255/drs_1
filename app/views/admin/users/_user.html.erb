@@ -1,5 +1,8 @@
 <li>
-  <span><%= link_to user.name, user %></span>
+  <span>
+    <%= image_tag t("avatar"), class: "image-avatar" %>
+    <%= link_to user.name, user %>
+  </span>
   <% unless user.admin %>
     <%= t "slash" %>
     <%= link_to t("destroy.button"), admin_user_path(user),

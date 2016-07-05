@@ -4,7 +4,7 @@ en:
     title: "Project 1"
   home:
     title: "Home"
-    content: "Start"
+    content: "Sign in"
   help:
     title: "Help"
   about:
@@ -24,7 +24,7 @@ en:
     account: "Account"
     title: "Users"
     all: "All users"
-    view: "View my profile"
+    view: "View profile"
     nil: "User not found"
     deleted: "User deleted"
     deletefail: "Delete fail"
@@ -142,3 +142,4 @@ en:
       fail: "Create fail"
   manager:
     fail: "You are not be manager"
+  avatar: "avatar.png"

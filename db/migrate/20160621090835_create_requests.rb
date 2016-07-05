@@ -8,6 +8,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :compensation_time
       t.string :reason
       t.references :user, index: true, foreign_key: true
+      t.boolean :approve, default: false
 
       t.timestamps null: false
     end

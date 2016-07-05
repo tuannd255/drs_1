@@ -2,7 +2,7 @@
   <%= image_tag t("avatar"), class: "image-avatar" %>
   <%= link_to user.name, user %>
   <div>
-    <% if current_user.profile.position == Position.first &&
+    <% if current_user.check_manager? &&
       current_user.profile.division.present? %>
       <% unless user.admin? %>
         <%= form_for user do |f| %>

@@ -25,8 +25,7 @@ class ApplicationController < ActionController::Base
 
   def correct_manager_and_user
     @user = User.find_by id: params[:id]
-    unless current_user.profile.position == Position.first || 
-      @user.current_user?(current_user)
+    unless current_user.check_manager? || @user.current_user?(current_user)
       flash[:danger] = t "manager.fail"
       redirect_to root_path
     end

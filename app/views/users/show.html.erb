@@ -7,34 +7,34 @@
         <%= @user.name %>
       </p>
       <p>
-        <%= t "gender" %> 
+        <%= t "gender" %>
         <%= @user.gender %>
-      </p>        
+      </p>
       <p>
-        <%= t "birthday" %> 
+        <%= t "birthday" %>
         <%= @user.birthday %>
       </p>
       <p>
-        <%= t "email" %> 
+        <%= t "email" %>
         <%= @user.email %>
       </p>
       <% if @user.profile.skill.present? %>
         <p>
-          <%= t "skill" %> 
+          <%= t "skill" %>
           <%= @user.profile.skill.language %>
         </p>
       <% end %>
       <% if @user.profile.position.present? %>
         <p>
-          <%= t("position.title") + t(:colon) %> 
+          <%= t "position.title" %>: 
           <%= @user.profile.position.position %>
         </p>
       <% end %>
       <% if @user.profile.division.present? %>
         <p>
-          <%= t("position.division") + t(:colon) %> 
+          <%= t "position.division" %>: 
           <%= @user.profile.division.descrition %>
-          <% if current_user.profile.position == Position.first &&
+          <% if current_user.check_manager? &&
             @user.current_user?(current_user) %>
             <%= link_to t("division.add_member"), users_path %>
           <% end %>

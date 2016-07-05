@@ -2,7 +2,9 @@
 <div class="row">
   <aside class="col-md-4 center">
     <section class="user_info">
-      <div class="avatar"></div>
+      <p>
+        <%= image_tag t("avatar"), class: "avatar" %>
+      </p>
       <span><%= @user.name %></span>
       <p><%= link_to t("users.view"), @user %></p>
     </section>

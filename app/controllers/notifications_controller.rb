@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
     if Notification.unread.blank?
       @requests = Request.order_by_time.paginate page: params[:page]
     else
-      @requests = Request.not_seen.paginate page: params[:page]
+      @requests = Request.order_by_time.not_seen.paginate page: params[:page]
     end
   end
 

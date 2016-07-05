@@ -13,14 +13,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  def new
-  end
-
-  def show
-    @request = current_user.requests.build    
-    @feed_items = current_user.feed_items.oder_by_time.paginate page: params[:page]
-  end
-
   def create
     @request = current_user.requests.build request_params
     if @request.save
@@ -39,7 +31,7 @@ class RequestsController < ApplicationController
   def update
     if @request.update_attributes approve: true
       flash[:success] = t "successapprove"
-      redirect_to requests_path
+      redirect_to notifications_path
     else
       render :edit
     end

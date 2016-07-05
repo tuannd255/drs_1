@@ -3,7 +3,9 @@
   <div class="col-md-4 center">
     <div class="user_info">
       <p>
-        <div class="avatar"></div>
+        <%= image_tag t("avatar"), class: "avatar" %>
+      </p>
+      <p>
         <%= @user.name %>
       </p>
       <p>

@@ -21,6 +21,7 @@ en:
   profile: "Profile"
   setting: "Setting"
   users: 
+    manage_request: "Mange Request"
     account: "Account"
     title: "Users"
     all: "All users"
@@ -53,6 +54,7 @@ en:
     button: "Edit"
   successupdate: "Update success"
   updatefail: "Update fail"
+  successapprove: "Approved"
   sure: "You sure?"
   delete: "delete"
   birthday: "Birthday: "
@@ -61,6 +63,7 @@ en:
   skill: "Skill: "
   request:
     name: "request"
+    title_1: "All Request"
     title: "Request (%{count})"
     send: "Send"
     ago: "ago"
@@ -77,6 +80,7 @@ en:
     time: "Time"
     minutes: "minutes"
     feed: "Request Feed"
+    approve: "Approve"
   report:
     name: "report"
     title: "Report"

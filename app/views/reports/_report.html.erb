@@ -6,39 +6,39 @@
   </p>
   <div>
     <span class="content">
-      <%= t("report.progress") + t(:colon) + t(:space) %>
+      <%= t "report.progress" %>: 
       <%= report.progress %>
     </span>
   </div>
   <div>
     <span class="content">
-      <%= t("report.rpd") + t(:colon) + t(:space) %>
+      <%= t "report.rpd" %>: 
       <%= report.report_date %>
     </span>
   </div>
   <div>
     <span class="content">
-      <%= t("report.achievement") + t(:colon) + t(:space) %>
+      <%= t "report.achievement" %>: 
       <%= report.achievement %>
     </span>
   </div>
   <div>
     <span class="content">
-      <%= t("report.ndp") + t(:colon) + t(:space) %>
+      <%= t "report.ndp" %>: 
       <%= report.next_day_plan %>
     </span>
   </div>  
   <div>
     <span class="content">
-      <%= t("report.comment_question") + t(:colon) + t(:space) %>
+      <%= t "report.comment_question" %>: 
       <%= report.comment_question %>
     </span>
   </div>
   <div>
     <span class="timestamp">
-      <%= t("report.send") + t(:space) %>
-      <%= time_ago_in_words(report.created_at) %>
-      <%= t(:space) + t("report.ago") %>
+      <%= t "report.send" %> 
+      <%= time_ago_in_words report.created_at %> 
+      <%= t "report.ago" %>
     </span>
   </div>
 </li>

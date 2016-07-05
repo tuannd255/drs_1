@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 20160629053301) do
     t.string   "compensation_time"
     t.string   "reason"
     t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "approve",           default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "requests", ["user_id", "created_at"], name: "index_requests_on_user_id_and_created_at"

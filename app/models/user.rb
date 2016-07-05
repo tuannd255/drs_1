@@ -83,4 +83,8 @@ class User < ActiveRecord::Base
   def following? other_user
     following.include? other_user
   end
+
+  def check_manager?
+    profile.position == Position.first
+  end
 end

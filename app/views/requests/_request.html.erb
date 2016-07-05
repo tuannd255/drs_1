@@ -1,6 +1,7 @@
 <li id="request-<%= request.id %>">
   <p>
     <span class="user">
+      <%= image_tag t("avatar"), class: "image-avatar" %>
       <%= link_to request.user.name, request.user %>
     </span>
   </p>

@@ -1,4 +1,5 @@
 <li>
+  <%= image_tag t("avatar"), class: "image-avatar" %>
   <%= link_to user.name, user %>
   <div>
     <% if current_user.profile.position == Position.first &&

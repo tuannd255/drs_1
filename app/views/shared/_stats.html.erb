@@ -6,6 +6,7 @@
     </strong>
     <%= t "follow_user.following" %>
   <% end %>
+  <%= t :slash %>
   <%= link_to relationships_path id: @user, relationship: "followers" do %>
     <strong id="followers" class="stat">
       <%= @user.followers.count %>

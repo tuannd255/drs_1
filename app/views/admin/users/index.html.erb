@@ -1,9 +1,9 @@
 <% provide :title, t("users.all") %>
-
-<%= form_tag admin_users_path, method: :get do %>
-  <%= text_field_tag :search, params[:search],
-    placeholder: t("users.search") %>
-  <%= submit_tag t("search.search") %>
-<% end %>
-
+<div class="form-search">
+  <%= form_tag admin_users_path, method: :get do %>
+    <%= text_field_tag :search, params[:search],
+      placeholder: t("users.search") %>
+    <%= submit_tag t("search.search"), class: "btn btn-primary" %>
+  <% end %>
+</div>
 <%= render "shared/result" %>

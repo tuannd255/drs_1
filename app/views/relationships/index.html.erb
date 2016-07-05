@@ -1,18 +1,19 @@
 <% provide :title, @title %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-4 center">
     <section class="user_info">
+      <div class="avatar"></div>
       <span><%= @user.name %></span>
-      <p><%= link_to t("follow.view"), @user %></p>
+      <p><%= link_to t("users.view"), @user %></p>
     </section>
     <section class="stats">
       <%= render "shared/stats" %>
     </section>
   </aside>
   <div class="col-md-8">
-    <h3><%= @title %></h3>
+    <h3 class="users"><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users">
         <%= render @users %>
       </ul>
       <%= will_paginate @users %>

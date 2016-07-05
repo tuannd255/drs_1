@@ -24,6 +24,19 @@ Division.create! descrition: "keangnam"
     profile: Profile.create!(user_id: :id, position_id: Position.second.id))
 end
 
+10.times do |n|
+  time_in = Time.now
+  time_out = Time.now
+  kind_of_leave = "il"
+  reason = "reason#{n+1}"
+  compensation_time = "compensation#{n+1}"
+  Request.create!(time_in: time_in,
+    kind_of_leave: kind_of_leave,
+    reason: reason,
+    compensation_time: compensation_time,
+    user_id: 1)
+end
+
 users = User.all
 user = users.first
 following = users[2..50]

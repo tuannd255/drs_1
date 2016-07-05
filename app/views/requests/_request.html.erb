@@ -1,64 +1,80 @@
-<% unless request.approve? %>
-  <li id="request-<%= request.id %>">
-    <p>
-      <span class="user">
-        <%= link_to request.user.name, request.user %>
-      </span>
-    </p>
+<li id="request-<%= request.id %>">
+  <p>
+    <span class="user">
+      <%= image_tag t("avatar"), class: "image-avatar" %>
+      <%= link_to request.user.name, request.user %>
+    </span>
+  </p>
+  <div>
+    <span class="content">
+      <%= t "request.kol" %>: 
+      <%= request.kind_of_leave %>
+    </span>
+  </div>
+  <% if request.time_out.present? %>
     <div>
       <span class="content">
-        <%= t "request.kol" %>: 
-        <%= request.kind_of_leave %>
+        <%= t "request.leave_from" %>: 
+        <%= request.time_out %>
       </span>
     </div>
-    <% if request.time_out.present? %>
-      <div>
-        <span class="content">
-          <%= t "request.leave_from" %>: 
-          <%= request.time_out %>
-        </span>
-      </div>
-    <% end %>
-    <% if request.time_in.present? %>
-      <div>
-        <span class="content">
-          <%= t "request.to" %>: 
-          <%= request.time_in %>
-        </span>
-      </div>
-    <% end %>
-    <% if request.time_out.present? && request.time_in.present? %>
-      <span class="content">
-        <%= t "request.time" %>: 
-        <%= request.time %>
-        <%= t "request.minutes" %>
-      </span>
-    <% end %>
+  <% end %>
+  <% if request.time_in.present? %>
     <div>
       <span class="content">
-        <%= t "request.reason" %>: 
-        <%= request.reason %>
+        <%= t "request.to" %>: 
+        <%= request.time_in %>
       </span>
     </div>
+  <% end %>
+  <% if request.time_out.present? && request.time_in.present? %>
+    <span class="content">
+      <%= t "request.time" %>: 
+      <%= request.time %>
+      <%= t "request.minutes" %>
+    </span>
+  <% end %>
+  <div>
+    <span class="content">
+      <%= t "request.reason" %>: 
+      <%= request.reason %>
+    </span>
+  </div>
+  <div>
+    <span class="content">
+      <%= t "request.compensation" %>: 
+      <%= request.compensation_time %>
+    </span>
+  </div>
+  <% if request.approve? %>
     <div>
       <span class="content">
-        <%= t "request.compensation" %>: 
-        <%= request.compensation_time %>
+        <%= t "request.approve" %>: 
+        <%= t "request.approved" %>
       </span>
     </div>
+  <% else %>
     <div>
-      <span class="timestamp">
-        <%= t "request.send" %> 
-        <%= time_ago_in_words request.created_at %> 
-        <%= t "request.ago" %>
+      <span class="content">
+        <%= t "request.approve" %>: 
+        <span class="not-approve"><%= t "request.approve_wait" %></span>
       </span>
-      <% if current_user.check_manager? %>
-        <div class="col-md-4">
+    </div>
+  <% end %>
+  <div>
+    <span class="timestamp">
+      <%= t "request.send" %> 
+      <%= time_ago_in_words request.created_at %> 
+      <%= t "request.ago" %>
+    </span>
+    <% if current_user.check_manager? %>
+      <% unless request.approve? %>
+        <div class="approve-btn">
           <span class="approve_form">
             <%= render "shared/approve_form", request: request %>
           </span>
         </div>
       <% end %>
-    </div>
-  </li>
-<% end %> 
+    <% end %>
+  </div>
+</li>

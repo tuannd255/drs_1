@@ -283,7 +283,7 @@ aside {
 }
 .home {
   background-image: url("wallpaper.jpg");
-  height: 594px;
+  height: 900px;
   background-size: 100%;
   color: #fff;
   .content {
@@ -294,11 +294,8 @@ aside {
   width: 200px;
 }
 .avatar {
-  background-image: url("avatar.png");
-  background-size: 100px 100px;
+  width: 100px;
   height: 100px;
-  background-repeat: no-repeat;
-  margin-left: 155px;
 }
 .image-avatar {
   height: 20px;
@@ -315,4 +312,10 @@ aside {
 }
 .edit-users {
   padding-bottom: 50px;
+}
+.approve-btn {
+  width: 300px;
+}
+.not-approve {
+  color: red;
 }

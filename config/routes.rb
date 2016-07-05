@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "notification" => "notification#index"
 
   resources :users
-  resources :requests, only: [:create, :index, :edit, :update]
+  resources :requests, except: [:new, :show, :destroy]
   resources :reports, only: [:index, :create]  
   resources :relationships, only: [:index, :create, :destroy]
   resources :notifications, only: [:index]

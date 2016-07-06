@@ -1,0 +1,11 @@
+$(".feed").html("<%= j render "shared/feed", feed_items: @feed_items %>");
+<% if @request.save %>
+  $(".flash").html("<%= j render "shared/flash" %>");
+  $("#request_reason").val('');
+  $("#request_time_out").val('');
+  $("#request_time_in").val('');
+  $("#request_kind_of_leave").val('');
+  $("#request_compensation_time").val('');
+<% else %>
+  $(".flash").html("<%= j render "shared/error_messages", object: @request %>");
+<% end %>

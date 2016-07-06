@@ -21,9 +21,9 @@
   <% end %>
 <% else %>
   <h1><%= t "users.all" %></h1>
-  <%= will_paginate @users %>
   <ul class="users">
+    <%= will_paginate @users %>
     <%= render @users %>
+    <%= will_paginate @users %>
   </ul>
-  <%= will_paginate @users %>
 <% end %>

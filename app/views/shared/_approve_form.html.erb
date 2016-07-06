@@ -1,6 +1,6 @@
-<%= form_for request, action: :update do |f| %>
+<%= form_for request, action: :update, remote: true do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <div class="field">
+  <div class="field-approve">
     <%= f.hidden_field :approve, value: true  %>
     <%= f.submit t("request.approve"), class: "btn btn-primary" %>
   </div>

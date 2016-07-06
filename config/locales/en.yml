@@ -1,7 +1,7 @@
 en:
   hello: "Hello world"
   pages:
-    title: "Dayly Report System"
+    title: "Daily Report System"
   home:
     title: "Home"
     content: "Sign in"
@@ -79,7 +79,7 @@ en:
     reason_hidden: "Compose reason..."
     time: "Time"
     minutes: "minutes"
-    feed: "Request Feed"
+    feed: "Request List"
     approve: "Approve"
     approved: "Approved"
     approve_wait: "Wait"
@@ -153,7 +153,7 @@ en:
       fail: "Create fail"
   manager:
     fail: "You are not be manager"
-  avatar: "avatar.png"
+  avatar: "http://i.imgur.com/WadDgyo.png"
   noti:
     title: "Notifications(%{count})"
     title1: "Notifications"

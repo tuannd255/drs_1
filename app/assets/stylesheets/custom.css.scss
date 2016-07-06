@@ -282,7 +282,7 @@ aside {
   text-decoration: none!important;
 }
 .home {
-  background-image: url("wallpaper.jpg");
+  background-image: url("http://i.imgur.com/S0qyADJ.jpg");
   height: 900px;
   background-size: 100%;
   color: #fff;
@@ -310,6 +310,9 @@ aside {
   padding-bottom: 50px;
   padding-left: 50px;
 }
+.field-approve {
+  padding-left: 50px;
+}
 .edit-users {
   padding-bottom: 50px;
 }
@@ -318,4 +321,18 @@ aside {
 }
 .not-approve {
   color: red;
+}
+.reports {
+  list-style: none;
+  margin-left: 200px;
+  .content {
+    margin-left: 30px;
+  }
+  .timestamp {
+    color: #777777;
+  }
+  li {
+    padding: 5px 0px;
+    border-top: 1px solid #e8e8e8;
+  }
 }

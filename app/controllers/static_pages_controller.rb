@@ -3,7 +3,8 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @request = current_user.requests.build
       @kind_of_leaves = Request.kind_of_leaves
-      @feed_items = current_user.feed.order_by_time.paginate page: params[:page]
+      @feed_items = current_user.feed.order_by_time.paginate page: params[:page],
+        per_page: Settings.perpage
     end
   end
 

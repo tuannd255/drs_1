@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
   private
   def notify
     if logged_in?
-      if current_user.profile.position == Position.first or current_user.admin?
-        @notifications_count = Notification.unread.size        
+      @notifications_count = if current_user.check_manager? or
+        current_user.admin?
+        Request.uncheck.not_seen.size
+      else
+        Request.checked.accepted.not_seen.check_user(current_user.id).size
       end
     end
   end

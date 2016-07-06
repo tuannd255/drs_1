@@ -6,7 +6,8 @@ class RequestsController < ApplicationController
   def index
     if current_user.check_manager?
       @request = Request.new
-      @requests = Request.all.paginate page: params[:page]
+      @requests = Request.all.paginate page: params[:page],
+        per_page: Settings.perpage
     else
       flash[:danger] = t "manager.fail"
       redirect_to root_path
@@ -16,11 +17,12 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.build request_params
     if @request.save
-      @request.create_notification
+      @request.notifications.create
       flash[:success] = t "request.created"
       redirect_to root_url
     else
-      @feed_items = current_user.feed.order_by_time.paginate page: params[:page]
+      @feed_items = current_user.feed.order_by_time
+        .paginate page: params[:page], per_page: Settings.perpage
       render "static_pages/home"
     end
   end
@@ -30,6 +32,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update_attributes approve: true
+      @request.notifications.create response: true
       flash[:success] = t "successapprove"
       redirect_to notifications_path
     else

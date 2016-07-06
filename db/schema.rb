@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20160629053301) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "request_id"
-    t.boolean  "seen",       default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "seen",        default: false
+    t.boolean  "send_update", default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "notifications", ["request_id"], name: "index_notifications_on_request_id"

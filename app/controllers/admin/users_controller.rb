@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
     @users = if params[:search]
       User.search_by_name_or_email params[:search]
     else
-      User.paginate page: params[:page]
+      User.paginate page: params[:page], per_page: Settings.perpage
     end
   end
 

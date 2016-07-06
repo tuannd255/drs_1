@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
   belongs_to :user
-  has_one :notification
+  has_many :notifications
   scope :order_by_time, -> {order created_at: :desc}
   scope :self_or_following, -> (user_id, following_ids) {where(
     "user_id = ? OR user_id IN (?)", user_id, following_ids)}
@@ -12,8 +12,16 @@ class Request < ActiveRecord::Base
 
   enum kind_of_leave: {il: 0, lo: 1, le: 2}
 
-  scope :not_seen, -> {where "id in (select request_id from notifications where seen = 'f' )"}
-
+  scope :not_seen, -> {where "id in (
+    select request_id from notifications where seen = 'f' )"}
+  scope :accepted, -> {where "id in (
+    select request_id from notifications where response = 't' )"}
+  scope :checking, -> {where "id in (
+    select request_id from notifications where response = 'f' )"}
+  scope :checked, -> {where approve: true}
+  scope :uncheck, -> {where approve: false}
+  scope :check_user, -> (id) {where user_id: id}
+  
   private
   def check_kind_of_leave
     if il?

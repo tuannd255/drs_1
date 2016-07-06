@@ -18,12 +18,16 @@ class RequestsController < ApplicationController
     @request = current_user.requests.build request_params
     if @request.save
       @request.notifications.create
-      flash[:success] = t "request.created"
-      redirect_to root_url
+      @feed_items = current_user.feed.order_by_time.
+        paginate page: params[:page], per_page: Settings.perpage
+      flash.now[:success] = t "request.created"
     else
       @feed_items = current_user.feed.order_by_time
         .paginate page: params[:page], per_page: Settings.perpage
-      render "static_pages/home"
+    end
+    respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js
     end
   end
 
@@ -33,8 +37,15 @@ class RequestsController < ApplicationController
   def update
     if @request.update_attributes approve: true
       @request.notifications.create response: true
-      flash[:success] = t "successapprove"
-      redirect_to notifications_path
+      @requests = Request.uncheck.checking.paginate page: params[:page],
+        per_page: Settings.perpage
+      @feed_items = current_user.feed.order_by_time
+        .paginate page: params[:page], per_page: Settings.perpage
+      flash.now[:success] = t "successapprove"
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js
+      end
     else
       render :edit
     end

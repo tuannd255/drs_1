@@ -5,7 +5,8 @@ class RelationshipsController < ApplicationController
   def index
     relationship = params[:relationship]
     @title = t "follow_user.#{relationship}"
-    @users = @user.send(relationship).paginate page: params[:page]
+    @users = @user.send(relationship).paginate page: params[:page],
+      per_page: Settings.perpage
   end
 
   def create

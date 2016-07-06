@@ -22,7 +22,8 @@ class ReportsController < ApplicationController
 
   def show
     @report = current_user.reports.build    
-    @feed_items = current_user.feed_report.oder_by_time.paginate page: params[:page]
+    @feed_items = current_user.feed_report.oder_by_time
+      .paginate page: params[:page], per_page: Settings.perpage
   end
 
   private

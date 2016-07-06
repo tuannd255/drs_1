@@ -3,6 +3,7 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.references :request, index: true, foreign_key: true
       t.boolean :seen, default: false
+      t.boolean :response, default: false
 
       t.timestamps null: false
     end

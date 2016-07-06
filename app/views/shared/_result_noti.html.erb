@@ -1,0 +1,23 @@
+<% if params[:search].present? %>
+  <% if @requests.present? %>
+    <ul class="requests">
+      <%= render @requests %>
+    </ul>
+  <% else %>
+    <p>
+      <span>
+        <%= t "search.date" %>
+      </span>
+      <i>
+        <%= params[:search] %>
+      </i>
+    </p>
+  <% end %>
+<% else %>
+  <h1><%= t "request.title_1" %></h1>
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="requests">
+      <%= render @requests %>
+    </ul>
+  </div>
+<% end %>

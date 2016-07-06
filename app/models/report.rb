@@ -10,6 +10,8 @@ class Report < ActiveRecord::Base
   validate :checkDateReport
 
   scope :oder_by_time, -> {order created_at: :desc}
+  scope :search_by_date_or_progress, -> (search) {where(
+    "report_date LIKE :query OR progress LIKE :query", query: "%#{search}%")}
 
   private
   def checkDateReport

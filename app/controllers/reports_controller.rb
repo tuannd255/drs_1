@@ -2,37 +2,32 @@ class ReportsController < ApplicationController
   before_action :logged_in_user, except: [:destroy, :update, :edit]
   
   def index
-    @report = Report.new
-    load_reports
+    @reports = if params[:search]
+      Report.search_by_date_or_progress params[:search]
+    else
+      Report.paginate page: params[:page]
+    end
   end
 
   def new
+    @report = Report.new
+    @reports = current_user.feed_report.oder_by_time
+      .paginate page: params[:page], per_page: Settings.perpage
   end
 
   def create
     @report = current_user.reports.build report_params
     if @report.save
       flash[:success] = t "report.created"
-      redirect_to reports_path
+      redirect_to new_report_path
     else
-      load_reports
-      render :index
+      redirect_to new_report_path
     end
-  end
-
-  def show
-    @report = current_user.reports.build    
-    @feed_items = current_user.feed_report.oder_by_time
-      .paginate page: params[:page], per_page: Settings.perpage
   end
 
   private
   def report_params
     params.require(:report).permit :report_date, :progress, 
       :achievement, :next_day_plan, :comment_question
-  end
-
-  def load_reports
-    @reports = Report.all.paginate page: params[:page]
   end
 end

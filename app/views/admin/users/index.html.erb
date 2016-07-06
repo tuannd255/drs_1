@@ -1,7 +1,7 @@
 <% provide :title, t("users.all") %>
 <div class="form-search">
   <%= form_tag admin_users_path, method: :get do %>
-    <%= text_field_tag :search, params[:search],
+    <%= text_field_tag :search, params[:search], required: true,
       placeholder: t("users.search") %>
     <%= submit_tag t("search.search"), class: "btn btn-primary" %>
   <% end %>

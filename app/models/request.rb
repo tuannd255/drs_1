@@ -21,7 +21,9 @@ class Request < ActiveRecord::Base
   scope :checked, -> {where approve: true}
   scope :uncheck, -> {where approve: false}
   scope :check_user, -> (id) {where user_id: id}
-  
+  scope :search_request_by_date, -> (search) {where(
+    "time_in LIKE :query OR time_out LIKE :query", query: "%#{search}%")}
+
   private
   def check_kind_of_leave
     if il?

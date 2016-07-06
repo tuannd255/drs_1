@@ -83,7 +83,9 @@ en:
     approve: "Approve"
     approved: "Approved"
     approve_wait: "Wait"
+    search: "Search request by date or month...."
   report:
+    all: "All report"
     name: "report"
     title: "Report"
     ago: "ago"
@@ -95,6 +97,7 @@ en:
     achievement: "Achievement"
     ndp: "The next day plan"
     comment_question: "Your comment or question"
+    search: "Search report by date or progress...."
   space: " "
   colon: ":"
   follow:
@@ -108,6 +111,8 @@ en:
     name: "There is no one named "
     email: "nor have email"
     search: "Search"
+    progress: "There is no one progress"
+    date: "Nor have date"
   follow_user:
     followers: "followers"
     following: "following"

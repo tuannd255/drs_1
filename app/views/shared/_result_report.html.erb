@@ -1,0 +1,27 @@
+<% if params[:search].present? %>
+  <% if @reports.present? %>
+    <ul class="reports">
+      <%= render @reports %>
+    </ul>
+  <% else %>
+    <p>
+      <span> 
+        <%= t "search.progress" %>
+      </span>
+      <i>
+        <%= params[:search] %>
+      </i>
+      <span>
+        <%= t "search.date" %>
+      </span>
+      <i>
+        <%= params[:search] %>
+      </i>
+    </p>
+  <% end %>
+<% else %>
+  <h1><%= t "report.all" %></h1>
+  <ul class="reports">
+    <%= render @reports %>
+  </ul>
+<% end %>

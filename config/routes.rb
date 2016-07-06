@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :requests, except: [:new, :show, :destroy]
-  resources :reports, only: [:index, :create]  
+  resources :reports, only: [:index, :create, :new]  
   resources :relationships, only: [:index, :create, :destroy]
   resources :notifications, only: [:index]
   resources :users, only: [:index] do 

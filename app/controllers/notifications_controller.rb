@@ -3,7 +3,9 @@ class NotificationsController < ApplicationController
   
   def index
     if current_user.check_manager? or current_user.admin?
-      @requests = if Request.uncheck.checking.blank?
+      @requests = if params[:search]
+        Request.search_request_by_date params[:search]
+      elsif Request.uncheck.checking.blank?
         Request.order_by_time.paginate page: params[:page],
           per_page: Settings.perpage
       else

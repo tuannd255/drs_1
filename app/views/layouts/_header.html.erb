@@ -9,6 +9,11 @@
           <li>
             <%= link_to t("noti.title", count: @notifications_count), notifications_path %>    
           </li>
+          <li>
+          <% if current_user.admin? %>
+            <%= link_to t("report.title"), reports_path %>
+          <% end %>    
+          </li>
           <% if current_user.admin? %>
             <li><%= link_to t("users.title"), admin_users_path %></li>
           <% else %>

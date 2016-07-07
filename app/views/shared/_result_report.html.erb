@@ -1,29 +1,22 @@
-<% if params[:search].present? %>
-  <% if @reports.present? %>
-    <ul class="reports">
-      <%= render @reports %>
-    </ul>
-  <% else %>
-    <p>
-      <span> 
-        <%= t "search.progress" %>
-      </span>
-      <i>
-        <%= params[:search] %>
-      </i>
-      <span>
+<div class="col-md-6 col-md-offset-3">
+  <% if (params[:from] && params[:to]).present? %>
+    <% if @reports.present? %>
+      <h2><%= t "search.title", size: @reports.size %></h2>
+      <ul class="reports">
+        <%= render @reports %>
+      </ul>
+    <% else %>
+      <p class="center">
         <%= t "search.date" %>
-      </span>
-      <i>
-        <%= params[:search] %>
-      </i>
-    </p>
-  <% end %>
-<% else %>
-  <h1><%= t "report.all" %></h1>
-  <div class="col-md-6 col-md-offset-3">
+        <%= params[:from] %>
+        <%= t "search.to" %>
+        <%= params[:to] %>
+      </p>
+    <% end %>
+  <% else %>
+    <h1><%= t "report.all" %></h1>
     <ul class="reports">
       <%= render @reports %>
     </ul>
-  </div>  
-<% end %>
+  <% end %>
+</div> 

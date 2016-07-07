@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160629053301) do
 
   create_table "reports", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "report_date"
+    t.date     "report_date"
     t.string   "progress"
     t.string   "achievement"
     t.string   "next_day_plan"

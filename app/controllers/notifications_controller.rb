@@ -2,9 +2,9 @@ class NotificationsController < ApplicationController
   after_action :set_seen_true, only: :index
   
   def index
-    if current_user.check_manager? or current_user.admin?
-      @requests = if params[:search]
-        Request.search_request_by_date params[:search]
+    if current_user.check_manager? || current_user.admin?
+      @requests = if params[:date].present? || params[:month].present?
+        Request.search_request params[:date], params[:month]
       elsif Request.uncheck.checking.blank?
         Request.order_by_time.paginate page: params[:page],
           per_page: Settings.perpage
@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
   private
   def set_seen_true
     if @notifications_count >= 1
-      if current_user.check_manager? or current_user.admin?
+      if current_user.check_manager? || current_user.admin?
         Notification.unread.each do |notification|
           notification.update_attributes seen: true
         end

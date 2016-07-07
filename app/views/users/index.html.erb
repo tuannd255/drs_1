@@ -2,7 +2,7 @@
 <div class="form-search">
   <%= form_tag users_path, method: :get do %>
     <%= text_field_tag :search, params[:search], required: true,
-      placeholder: t("users.search") %>
+      placeholder: t("users.search"), class: "form-control" %>
     <%= submit_tag t("search.search"), class: "btn btn-primary" %>
   <% end %>
 </div>

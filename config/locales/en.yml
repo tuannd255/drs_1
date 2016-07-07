@@ -111,8 +111,10 @@ en:
     name: "There is no one named "
     email: "nor have email"
     search: "Search"
-    progress: "There is no one progress"
-    date: "Nor have date"
+    date: "No have report from"
+    to: "to"
+    date_request: "No have request in"
+    title: "Have %{size} items"
   follow_user:
     followers: "followers"
     following: "following"

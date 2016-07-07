@@ -1,8 +1,10 @@
 <% provide :title, t("noti.title1") %>
 <div class="form-search">
   <%= form_tag notifications_path, method: :get do %>
-    <%= text_field_tag :search, params[:search], required: true,
-      placeholder: t("request.search") %>
+    <%= label_tag :date %>
+    <%= date_field_tag :date, params[:date], class: "form-control" %>
+    <%= label_tag :month %>
+    <%= text_field_tag :month, params[:month], class: "form-control" %>
     <%= submit_tag t("search.search"), class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -12,10 +12,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    if @user.nil?
-      flash[:danger] = t "users.nil"
-      redirect_to root_path
-    end
     if @user.destroy
       flash[:success] = t "users.deleted"
       redirect_to admin_users_path

@@ -1,8 +1,10 @@
 <% provide :title, t("report.title") %>
 <div class="form-search">
   <%= form_tag reports_path, method: :get do %>
-    <%= text_field_tag :search, params[:search], required: true,
-      placeholder: t("report.search") %>
+    <%= label_tag :from %>
+    <%= date_field_tag :from, params[:from], required: true, class: "form-control" %>
+    <%= label_tag :to %>
+    <%= date_field_tag :to, params[:to], required: true, class: "form-control" %>
     <%= submit_tag t("search.search"), class: "btn btn-primary" %>
   <% end %>
 </div>
